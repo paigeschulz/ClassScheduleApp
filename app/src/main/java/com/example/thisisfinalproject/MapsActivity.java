@@ -24,7 +24,8 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
+public class MapsActivity extends FragmentActivity  implements OnMapReadyCallback  {
     LocationManager locationManager;
     LocationListener locationListener;
     LatLng userLatLong;
