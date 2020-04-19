@@ -25,9 +25,10 @@ public class ButtonListenerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_button_listener);
         simpleButton1 = (Button) findViewById(R.id.simpleButton1);//get id of button 1
         simpleButton2 = (Button) findViewById(R.id.simpleButton2);//get id of button 2
+
 
         simpleButton1.setOnClickListener(new View.OnClickListener() {
             @Override
