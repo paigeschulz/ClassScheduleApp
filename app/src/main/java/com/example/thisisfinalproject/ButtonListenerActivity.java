@@ -2,6 +2,7 @@ package com.example.thisisfinalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 // package com.example.thisisfinalproject;
 
@@ -38,7 +39,13 @@ public class ButtonListenerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Simple Button 2", Toast.LENGTH_LONG).show();//display the text of button2
+                Intent intent = new Intent(view.getContext(), MapsActivity.class);
+                startActivity(intent);
+
             }
+            // this is for clicking the button and taking you to google maps!
+
+           
         });
     }
 }
