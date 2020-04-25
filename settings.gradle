@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='This is final project'
+rootProject.name='Class Schedule App'

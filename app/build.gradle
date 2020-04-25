@@ -28,6 +28,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.android.support:design:24.0.0'
 }
 // do I add this to implement google calendar?
 /**apply plugin: 'java'

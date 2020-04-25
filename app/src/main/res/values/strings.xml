@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">This is final project</string>
     <string name="title_activity_maps">Map</string>
+    <string name="TextView"></string>
+    <string name="Enter">Enter classes</string>
+    <string name="Name">Name of Class</string>
+    <string name="Address">Class Location</string>
+    <string name="days">Days of the Week</string>
+    <string name="button">Add Another Class</string>
+    <string name="button2">Finish</string>
+    <string name="time">Time</string>
+
 </resources>
