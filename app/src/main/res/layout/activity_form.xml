@@ -10,6 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="16dp"
+    android:background="@color/white"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
@@ -23,8 +24,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
+        android:background="@color/white"
         android:layout_marginTop="45sp"
-        android:shadowColor="color/text_shadow"
+        android:shadowColor="#7F000000"
         android:text="@string/Enter"
         android:textSize="35sp"
         android:shadowDx="1"
@@ -48,6 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/Name"
+                android:background="@color/white"
+
                 android:hint="@string/Name"
                 android:importantForAutofill="no"
                 android:inputType="text"
@@ -97,6 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button"
+
             android:hint="@string/button"
             android:textColor="@color/colorPrimary"/>
         <Button
@@ -112,3 +117,4 @@
 
 
 </RelativeLayout>
+</ScrollView>

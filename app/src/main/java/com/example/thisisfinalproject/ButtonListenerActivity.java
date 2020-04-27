@@ -34,6 +34,8 @@ public class ButtonListenerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Simple Button 1", Toast.LENGTH_LONG).show();//display the text of button1
+                Intent intent = new Intent(view.getContext(), FormActivity.class);
+                startActivity(intent);
             }
         });
         simpleButton2.setOnClickListener(new View.OnClickListener() {

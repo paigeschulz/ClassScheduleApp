@@ -9,5 +9,6 @@
     <string name="button">Add Another Class</string>
     <string name="button2">Finish</string>
     <string name="time">Time</string>
+    <color name="white">#FFFFFF</color>
 
 </resources>
