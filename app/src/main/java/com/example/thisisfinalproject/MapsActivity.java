@@ -112,6 +112,8 @@ public class MapsActivity extends FragmentActivity  implements OnMapReadyCallbac
                 mMap.clear(); // clear old location
                 mMap.addMarker(new MarkerOptions().position(userLatLong).title("Current location"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(userLatLong));
+
+
             }
 
             @Override
