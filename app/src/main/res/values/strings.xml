@@ -4,12 +4,16 @@
     <string name="TextView">Class Time</string>
     <string name="Enter">Enter classes</string>
     <string name="Name">Name of Class</string>
-    <string name="Address">Class Location</string>
+    <string name="Address">Street Address</string>
+    <string name="Address2">City</string>
+    <string name="Address3">State</string>
+    <string name="Address4">Zip Code</string>
     <string name="days">Days of the Week</string>
     <string name="button">Add Another Class</string>
     <string name="button2">Finish</string>
     <string name="time">Time</string>
     <color name="white">#FFFFFF</color>
+    <string name="addClass">addClass</string>
     <string-array name="time">
         <item>1</item>
         <item>2</item>

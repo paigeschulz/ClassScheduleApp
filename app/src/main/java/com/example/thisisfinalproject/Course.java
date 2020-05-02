@@ -5,10 +5,17 @@ public class Course {
     private MapsActivity classLocation;
     private String daysOfWeek;
     private String timeClass;
+    private String theAddress;
+    private String theCity;
+    private String theState;
+    private String theZipCode;
     public Course() {}
-    public Course(String name, MapsActivity location, String days, String time) {
+    public Course(String name, String address, String city, String State, String zipCode, String days, String time) {
         this.className = name;
-        this.classLocation = location;
+        this.theAddress = address;
+        this.theCity = city;
+        this.theState = State;
+        this.theZipCode = zipCode;
         this.daysOfWeek = days;
         this.timeClass = time;
     }
@@ -18,11 +25,29 @@ public class Course {
     public String getName() {
         return this.className;
     }
-    public void setLocation(MapsActivity location) {
-        this.classLocation = location;
+    public void setAddress(String address) {
+        this.theAddress = address;
     }
-    public MapsActivity getLocation() {
-        return this.classLocation;
+    public String getTheAddress() {
+        return this.theAddress;
+    }
+    public void setCity(String city) {
+        this.theCity = city;
+    }
+    public String getTheCity() {
+        return this.theCity;
+    }
+    public void setTheState(String state) {
+        this.theState = state;
+    }
+    public String getTheState() {
+        return this.theState;
+    }
+    public void setTheZipCode(String zipCode) {
+        this.theZipCode = zipCode;
+    }
+    public String getTheZipCode() {
+        return this.theZipCode;
     }
     public void setDaysOfWeek(String days) {
         this.daysOfWeek = days;

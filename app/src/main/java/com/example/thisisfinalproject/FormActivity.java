@@ -3,13 +3,17 @@ package com.example.thisisfinalproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
-public class FormActivity extends AppCompatActivity {
+public abstract class FormActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
@@ -35,5 +39,15 @@ public class FormActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.daysSpinner));
         daysAdapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         daysSpin.setAdapter(daysAdapt);
+
+        Button name;
+        name = (Button) findViewById(R.id.buttonClass);
+        name.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+//send info to database here?
     }
 }
