@@ -165,18 +165,18 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonClass"
+            android:id="@+id/addClass"
 
             android:hint="@string/button"
             android:textColor="@color/colorPrimary"
-            android:onClick="@id/addClass"/>
+            android:onClick="addClass"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button2"
+            android:id="@+id/buttonFinish"
             android:hint="@string/button2"
             android:textColor="@color/colorPrimary"
-            android:onClick="finish"/>
+            android:onClick="buttonFinish"/>
 
 
     </LinearLayout>

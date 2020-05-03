@@ -43,7 +43,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
     }
     public ArrayList<Course> load() {
         ArrayList<Course> courseList = new ArrayList<Course>();
-        String query = "Select*FROM" + TABLE_NAME;
+        String query = "Select*FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
@@ -76,16 +76,10 @@ public class MyDBHandler extends SQLiteOpenHelper {
         arr.put(COLUMN_DAYS, course.getDaysOfWeek());
         arr.put(COLUMN_TIME, course.getTimeClass());
         SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(TABLE_NAME, null, values);
+        db.insert(TABLE_NAME, null, arr);
         db.close();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
-
-    public String loadHandler() {}
-    public void addHandler(Course course) {}
-    public Course findHandler(String studentname) {}
-    public boolean deleteHandler(int ID) {}
-    public boolean updateHandler(int ID, String name) {}
 }
