@@ -1,0 +1,41 @@
+@NotNull
+@Override
+public SyncResponse onSync(@NotNull SyncRequest syncRequest, @Nullable Map<?, ?> headers) {
+  Payload payload = new Payload();
+  payload.setAgentUserId("1836.15267389");
+  payload.setDevices(
+      new Device[] {
+        new Device.Builder()
+            .setId("123")
+            .setType("action.devices.types.OVEN")
+            .addTrait("action.devices.traits.TemperatureControl")
+            .addTrait("action.devices.traits.StartStop")
+            .addTrait("action.devices.traits.Timer")
+            .setName(
+                Collections.singletonList("AAA Smart Oven"),
+                "oven",
+                Collections.singletonList("conventional oven"))
+            .setWillReportState(true)
+            .setAttributes(
+                new JSONObject()
+                    .put(
+                        "temperatureRange",
+                        new JSONObject()
+                            .put("minThresholdCelsius", 65.5)
+                            .put("maxThresholdCelsius", 288))
+                    .put("temperatureUnitForUX", "F")
+                    .put("pausable", false)
+                    .put("maxTimerLimitSec", 720000)
+                    .put("commandOnlyTimer", false))
+            .setDeviceInfo("Smart Oven Manufacturers", "F600G", "3.2", "11.4")
+            .setCustomData(
+                new JSONObject()
+                    .put("fooValue", 74)
+                    .put("barValue", true)
+                    .put("bazValue", "lambtwirl")
+                    .toString())
+            .build()
+      });
+  return new SyncResponse(syncRequest.getRequestId(), payload);
+}
+
