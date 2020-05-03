@@ -1,15 +1,19 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'com.google.gms.google-services'
+
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.example.thisisfinalproject"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -28,22 +32,24 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation 'com.android.support:design:24.0.0'
-    compile 'com.google.android.gms:play-services:6.5.87'
-    compile 'com.google.apis:google-api-services-calendar:v3-rev119-1.19.1'
-    compile 'com.google.api-client:google-api-client:1.19.1'
-    compile 'com.google.api-client:google-api-client-android:1.19.1'
-    compile 'com.google.api-client:google-api-client-gson:1.19.1'
+   // implementation 'com.android.support:design:24.0.0'
+    implementation 'com.google.android.gms:play-services:9.2.1'
+    implementation 'com.google.apis:google-api-services-calendar:v3-rev119-1.19.1'
+    implementation 'com.google.api-client:google-api-client:1.23.0'
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
+    implementation 'com.google.apis:google-api-services-calendar:v3-rev305-1.23.0'
+    classpath 'com.google.gms:google-services:4.3.3'
+}
+configurations {
+    all*.exclude  module: 'play-services-basement'
+    all*.exclude  module: 'play-services-base'
+
+
 }
 // do I add this to implement google calendar?
-/**apply plugin: 'java'
- apply plugin: 'application'
 
- mainClassName = 'CalendarQuickstart'
- sourceCompatibility = 1.8
- targetCompatibility = 1.8
- version = '1.0'
 
- repositories {mavenCentral()}dependencies {compile 'com.google.api-client:google-api-client:1.23.0'
- compile 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
- compile 'com.google.apis:google-api-services-calendar:v3-rev305-1.23.0'}**/ 
+
+
+
+ repositories {mavenCentral()}

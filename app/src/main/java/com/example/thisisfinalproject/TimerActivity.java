@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.DateFormat;
 
-public class TimerActivity {
+/** public class TimerActivity {
     public ArrayList<Course> MW() {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         ArrayList<Course> courseList = dbHandler.load();
@@ -115,3 +115,4 @@ public class TimerActivity {
         }
     }
 }
+**/
