@@ -5,11 +5,11 @@ import 	java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.DateFormat;
+import java.time.LocalTime;
 
 public class TimerActivity {
-    public ArrayList<Course> MW() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
+    public ArrayList<Course> MW(ArrayList<Course> courseList) {
+
         ArrayList<Course> MWList = new ArrayList<Course>();
         for(int i=0; i < courseList.size(); i++) {
             if(courseList.get(i).getDaysOfWeek() == "Monday and Wednesday") {
@@ -18,64 +18,8 @@ public class TimerActivity {
         }
         return MWList;
     }
-    public ArrayList<Course> Monday() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
-        ArrayList<Course> MondayList = new ArrayList<Course>();
-        for(int i=0; i < courseList.size(); i++) {
-            if(courseList.get(i).getDaysOfWeek() == "Monday") {
-                MondayList.add(courseList.get(i));
-            }
-        }
-        return MondayList;
-    }
-    public ArrayList<Course> Tuesday() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
-        ArrayList<Course> TuesdayList = new ArrayList<Course>();
-        for(int i=0; i < courseList.size(); i++) {
-            if(courseList.get(i).getDaysOfWeek() == "Tuesday") {
-                TuesdayList.add(courseList.get(i));
-            }
-        }
-        return TuesdayList;
-    }
-    public ArrayList<Course> Wednesday() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
-        ArrayList<Course> WednesdayList = new ArrayList<Course>();
-        for(int i=0; i < courseList.size(); i++) {
-            if(courseList.get(i).getDaysOfWeek() == "Wednesday") {
-                WednesdayList.add(courseList.get(i));
-            }
-        }
-        return WednesdayList;
-    }
-    public ArrayList<Course> Thursday() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
-        ArrayList<Course> ThursdayList = new ArrayList<Course>();
-        for(int i=0; i < courseList.size(); i++) {
-            if(courseList.get(i).getDaysOfWeek() == "Thursday") {
-                ThursdayList.add(courseList.get(i));
-            }
-        }
-        return ThursdayList;
-    }
-    public ArrayList<Course> Friday() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
-        ArrayList<Course> FridayList = new ArrayList<Course>();
-        for(int i=0; i < courseList.size(); i++) {
-            if(courseList.get(i).getDaysOfWeek() == "Friday") {
-                FridayList.add(courseList.get(i));
-            }
-        }
-        return FridayList;
-    }
-    public ArrayList<Course> MWF() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
+
+    public ArrayList<Course> MWF(ArrayList<Course> courseList) {
         ArrayList<Course> MWFList = new ArrayList<Course>();
         for(int i=0; i < courseList.size(); i++) {
             if(courseList.get(i).getDaysOfWeek() == "Monday, Wednesday, Friday") {
@@ -84,9 +28,9 @@ public class TimerActivity {
         }
         return MWFList;
     }
-    public ArrayList<Course> TT() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
+    public ArrayList<Course> TT(ArrayList<Course> courseList) {
+
+
         ArrayList<Course> TTList = new ArrayList<Course>();
         for(int i=0; i < courseList.size(); i++) {
             if(courseList.get(i).getDaysOfWeek() == "Tuesday and Thursday") {
@@ -96,22 +40,135 @@ public class TimerActivity {
         return TTList;
     }
 
-    public Course getNextCourse() {
-        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-        ArrayList<Course> courseList = dbHandler.load();
+    public Course getNextCourse(ArrayList<Course> courseList) {
+
+
         Calendar myDate = Calendar.getInstance();
         int day = myDate.get (Calendar.DAY_OF_WEEK);
-        ArrayList<Course> MonWed = this.MW();
-        ArrayList<Course> Mon = this.Monday();
-        ArrayList<Course> Tues = this.Tuesday();
-        ArrayList<Course> Wed = this.Wednesday();
-        ArrayList<Course> Thurs = this.Thursday();
-        ArrayList<Course> Fri = this.Friday();
-        ArrayList<Course> MonWedFri = this.MWF();
-        ArrayList<Course> TuesThurs = this.TT();
+        ArrayList<Course> MonWed = this.MW(courseList);
+        ArrayList<Course> MonWedFri = this.MWF(courseList);
+        ArrayList<Course> TuesThurs = this.TT(courseList);
         Course nextCourse = new Course();
-        if(day == 1 || day == 7) {
 
+        LocalTime now = LocalTime.now();
+        LocalTime timeOne = LocalTime.now();
+        if (day == 2 || day == 1 || day == 7 || day == 4 || day == 6) {
+            if (MonWed.size() != 0) {
+                for (int i  = 0; i < MonWed.size(); i++) {
+                    LocalTime time = LocalTime.parse(MonWed.get(i).getTimeClass());
+                    boolean isAfter = now.isAfter(time);
+                    boolean isBeforeTimeOne = timeOne.isBefore(time);
+                    if (timeOne == now && isAfter == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+
+                    }
+                    if (isAfter == false && isBeforeTimeOne == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+                    }
+
+                }
+            }
+            if (MonWedFri.size() != 0) {
+                for (int i  = 0; i < MonWed.size(); i++) {
+                    LocalTime time = LocalTime.parse(MonWed.get(i).getTimeClass());
+                    boolean isAfter = now.isAfter(time);
+                    boolean isBeforeTimeOne = timeOne.isBefore(time);
+                    if (timeOne == now && isAfter == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+
+                    }
+                    if (isAfter == false && isBeforeTimeOne == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+                    }
+
+                }
+            }
+
+
+            if (MonWed.size() == 0 && MonWedFri.size() == 0) {
+            if (TuesThurs.size() != 0) {
+                for (int i = 0; i < MonWed.size(); i++) {
+                    LocalTime time = LocalTime.parse(MonWed.get(i).getTimeClass());
+                    boolean isAfter = now.isAfter(time);
+                    boolean isBeforeTimeOne = timeOne.isBefore(time);
+                    if (timeOne == now && isAfter == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+
+                    }
+                    if (isAfter == false && isBeforeTimeOne == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+                    }
+
+                }
+            }
         }
+
     }
+        if (day == 3 && day == 5) {
+            if (TuesThurs.size() != 0) {
+                for (int i = 0; i < MonWed.size(); i++) {
+                    LocalTime time = LocalTime.parse(MonWed.get(i).getTimeClass());
+                    boolean isAfter = now.isAfter(time);
+                    boolean isBeforeTimeOne = timeOne.isBefore(time);
+                    if (timeOne == now && isAfter == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+
+                    }
+                    if (isAfter == false && isBeforeTimeOne == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+                    }
+
+                }
+            }
+            if (TuesThurs.size() == 0) {
+                if (MonWed.size() != 0) {
+                    for (int i = 0; i < MonWed.size(); i++) {
+                        LocalTime time = LocalTime.parse(MonWed.get(i).getTimeClass());
+                        boolean isAfter = now.isAfter(time);
+                        boolean isBeforeTimeOne = timeOne.isBefore(time);
+                        if (timeOne == now && isAfter == false) {
+                            nextCourse = MonWed.get(i);
+                            timeOne = time;
+
+                        }
+                        if (isAfter == false && isBeforeTimeOne == false) {
+                            nextCourse = MonWed.get(i);
+                            timeOne = time;
+                        }
+
+                    }
+                }
+            }
+            if (MonWedFri.size() != 0) {
+                for (int i = 0; i < MonWed.size(); i++) {
+                    LocalTime time = LocalTime.parse(MonWed.get(i).getTimeClass());
+                    boolean isAfter = now.isAfter(time);
+                    boolean isBeforeTimeOne = timeOne.isBefore(time);
+                    if (timeOne == now && isAfter == false) {
+                        nextCourse = MonWed.get(i);
+                        timeOne = time;
+
+                    }
+                }
+            }
+        }
+        return nextCourse;
+    }
+    public String timeUntilCourse(ArrayList<Course> listCourses) {
+        Course nextCourse = getNextCourse(listCourses);
+        String nextCourseTime = nextCourse.getTimeClass();
+
+
+
+    }
+
+
 }
