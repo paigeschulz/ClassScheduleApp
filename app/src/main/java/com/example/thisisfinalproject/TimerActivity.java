@@ -1,11 +1,17 @@
 package com.example.thisisfinalproject;
 
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.widget.TextView;
+
+import java.text.ParseException;
 import java.util.ArrayList;
 import 	java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.DateFormat;
 import java.time.LocalTime;
+import java.util.Locale;
 
 public class TimerActivity {
     public ArrayList<Course> MW(ArrayList<Course> courseList) {
@@ -112,17 +118,17 @@ public class TimerActivity {
     }
         if (day == 3 && day == 5) {
             if (TuesThurs.size() != 0) {
-                for (int i = 0; i < MonWed.size(); i++) {
-                    LocalTime time = LocalTime.parse(MonWed.get(i).getTimeClass());
+                for (int i = 0; i < TuesThurs.size(); i++) {
+                    LocalTime time = LocalTime.parse(TuesThurs.get(i).getTimeClass());
                     boolean isAfter = now.isAfter(time);
                     boolean isBeforeTimeOne = timeOne.isBefore(time);
                     if (timeOne == now && isAfter == false) {
-                        nextCourse = MonWed.get(i);
+                        nextCourse = TuesThurs.get(i);
                         timeOne = time;
 
                     }
                     if (isAfter == false && isBeforeTimeOne == false) {
-                        nextCourse = MonWed.get(i);
+                        nextCourse = TuesThurs.get(i);
                         timeOne = time;
                     }
 
@@ -165,6 +171,36 @@ public class TimerActivity {
     public String timeUntilCourse(ArrayList<Course> listCourses) {
         Course nextCourse = getNextCourse(listCourses);
         String nextCourseTime = nextCourse.getTimeClass();
+        Calendar myDate = Calendar.getInstance();
+        int day = myDate.get (Calendar.DAY_OF_WEEK);
+        LocalTime now = LocalTime.now();
+        String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        String dateNextCourse = new SimpleDateFormat("yyyy-MM-dd").format(nextCourse);
+
+        SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try {
+            date = dformat.parse("20-09-2014");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //      .getTime() does the conversion: Date --> long
+        CountDownTimer cdt = new CountDownTimer(date.getTime(), 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                // TODO Auto-generated method stub
+
+            }
+
+            public void onFinish() {
+                // TODO Auto-generated method stub
+
+            }
+        }.start();
+        return nextCourseTime;
+
+
+
 
 
 

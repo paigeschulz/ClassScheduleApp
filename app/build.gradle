@@ -34,7 +34,9 @@ dependencies {
     compile 'com.google.api-client:google-api-client:1.19.1'
     compile 'com.google.api-client:google-api-client-android:1.19.1'
     compile 'com.google.api-client:google-api-client-gson:1.19.1'
+
 }
+
 // do I add this to implement google calendar?
 /**apply plugin: 'java'
  apply plugin: 'application'
