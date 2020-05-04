@@ -12,6 +12,7 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.time.LocalTime;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class TimerActivity {
     public ArrayList<Course> MW(ArrayList<Course> courseList) {
@@ -174,8 +175,10 @@ public class TimerActivity {
         Calendar myDate = Calendar.getInstance();
         int day = myDate.get (Calendar.DAY_OF_WEEK);
         LocalTime now = LocalTime.now();
-        String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        final String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         String dateNextCourse = new SimpleDateFormat("yyyy-MM-dd").format(nextCourse);
+
+
 
         SimpleDateFormat dformat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = null;
@@ -188,7 +191,15 @@ public class TimerActivity {
         CountDownTimer cdt = new CountDownTimer(date.getTime(), 1000) {
 
             public void onTick(long millisUntilFinished) {
+
                 // TODO Auto-generated method stub
+                long millis = millisUntilFinished;
+                String hms = (TimeUnit.MILLISECONDS.toDays(millis)) + "Day "
+                        + (TimeUnit.MILLISECONDS.toHours(millis) - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(millis)) + ":")
+                        + (TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)) + ":"
+                        + (TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))));
+              //  hms.setText(/*context.getString(R.string.ends_in) + " " +*/ hms);
+
 
             }
 
@@ -197,7 +208,9 @@ public class TimerActivity {
 
             }
         }.start();
-        return nextCourseTime;
+        return currentDate;
+
+
 
 
 
