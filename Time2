@@ -1,0 +1,37 @@
+// not 30000, current time - time of next class 
+// 1000 = milliseconds ; 1 = seconds
+ 
+ new CountDownTimer(30000, 1000) {
+
+     public void onTick(long millisUntilFinished) {
+         mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+     }
+
+     public void onFinish() {
+         mTextField.setText("done!");
+     }
+  }.start();
+ 
+ 
+ public CountDownTimer (long millisInFuture,long countDownInterval) {
+
+}
+//millisInFuture = long: The number of millis in the future from the call to start() 
+//until the countdown is done and onFinish() is called.
+
+//countDownInterval = long: The interval along the way to receive onTick(long) callbacks
+
+//Methods
+
+public abstract void onFinish() {
+}
+// callback fired when the time is up
+// starts next timer
+
+public abstract void onTick(long millisUntilFinished) {
+}
+//Callback fired on regular interval
+
+public final CountDownTimer start() {
+}
+//Start the countdown (right after the last one finishes)
