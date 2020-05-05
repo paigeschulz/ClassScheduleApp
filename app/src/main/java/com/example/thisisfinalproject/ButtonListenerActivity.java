@@ -19,15 +19,16 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class ButtonListenerActivity extends AppCompatActivity {
-    // creates two buttons for the home screen
-    Button simpleButton1, simpleButton2;
+
+    Button simpleButton1, simpleButton2, simpleButton3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_listener);
-        simpleButton1 = (Button) findViewById(R.id.simpleButton1);//get id of button 1
-        simpleButton2 = (Button) findViewById(R.id.simpleButton2);//get id of button 2
+        simpleButton1 = (Button) findViewById(R.id.simpleButton1);
+        simpleButton2 = (Button) findViewById(R.id.simpleButton2);
+        simpleButton3 = (Button) findViewById(R.id.simpleButton3);
 
 
         simpleButton1.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +49,16 @@ public class ButtonListenerActivity extends AppCompatActivity {
             }
             // this is for clicking the button and taking you to google maps!
 
-           
+
+        });
+        simpleButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Simple Button 3", Toast.LENGTH_LONG).show();//display the text of button2
+                Intent intent = new Intent(view.getContext(), CountDownActivity.class);
+                startActivity(intent);
+
+            }
         });
     }
 }

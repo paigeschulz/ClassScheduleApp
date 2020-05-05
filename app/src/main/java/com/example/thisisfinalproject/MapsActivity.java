@@ -93,7 +93,7 @@ public class MapsActivity extends FragmentActivity  implements OnMapReadyCallbac
 
             }
         };
-        // asking for map permission w user / location permission
+        // asking for map permission - location permission
         askLocationPermission();
 
     }
@@ -106,7 +106,7 @@ public class MapsActivity extends FragmentActivity  implements OnMapReadyCallbac
                     return;
                 }
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-// getting user last location to set default location marker on map
+// getting user last location to set marker
                 Location lastLocation = locationManager.getLastKnownLocation(locationManager.GPS_PROVIDER);
                 userLatLong = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
                 mMap.clear(); // clear old location

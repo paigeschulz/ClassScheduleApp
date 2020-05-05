@@ -3,6 +3,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="TextView">Class Time</string>
     <string name="Enter">Enter classes</string>
+    <string name="txtNumber">hi</string>
     <string name="Name">Name of Class</string>
     <string name="Address">Street Address</string>
     <string name="Address2">City</string>

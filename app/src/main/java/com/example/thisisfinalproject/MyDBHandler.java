@@ -65,7 +65,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return courseList;
     }
-
+// used to be just public void add
     public void add(Course course) {
         ContentValues arr = new ContentValues();
         arr.put(COLUMN_NAME, course.getName());
@@ -78,6 +78,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_NAME, null, arr);
         db.close();
+
     }
 
     @Override

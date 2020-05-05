@@ -169,14 +169,14 @@
 
             android:hint="@string/button"
             android:textColor="@color/colorPrimary"
-            android:onClick="addClass"/>
+            android:onClick="onClick"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonFinish"
             android:hint="@string/button2"
             android:textColor="@color/colorPrimary"
-            android:onClick="buttonFinish"/>
+            android:onClick="onClick"/>
 
 
     </LinearLayout>

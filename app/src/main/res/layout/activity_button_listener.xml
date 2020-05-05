@@ -14,7 +14,7 @@
         android:id="@+id/simpleButton1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="248dp"
         android:background="#5454D1"
         android:drawableRight="@mipmap/ic_launcher"
         android:hint="Add classes"
@@ -23,7 +23,7 @@
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,7 @@
         android:id="@+id/simpleButton2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="152dp"
         android:background="#CC5D2A"
         android:drawableLeft="@mipmap/ic_launcher"
         android:hint="Route"
@@ -40,7 +40,24 @@
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/simpleButton3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="344dp"
+        android:background="#CC5D2A"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:hint="Time until Next Class"
+        android:padding="5dp"
+        android:textColorHint="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

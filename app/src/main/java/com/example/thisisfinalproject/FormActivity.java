@@ -2,6 +2,9 @@ package com.example.thisisfinalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -9,22 +12,39 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.DateFormat;
+import java.util.List;
 
 
 public class FormActivity extends AppCompatActivity implements View.OnClickListener {
+    MyDBHandler handler;
+    private Button name, name2;
+    private EditText editText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
+
+        //Button name;
+        name = (Button) findViewById(R.id.addClass);
+        name.setOnClickListener(this);
+
+        //Button name2;
+        name2 = (Button) findViewById(R.id.buttonFinish);
+        name2.setOnClickListener(this);
+        // editText = (EditText) findViewById(R.id.Address);
+
+        //handler = new MyDBHandler(this);
+
+
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(FormActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.time));
@@ -48,19 +68,20 @@ public class FormActivity extends AppCompatActivity implements View.OnClickListe
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.daysSpinner));
         daysAdapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         daysSpin.setAdapter(daysAdapt);
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FormActivity.this, Course.class);
+                startActivity(intent);
+            }
+        });
 
-        Button name;
-        name = (Button) findViewById(R.id.addClass);
-        name.setOnClickListener(this);
-
-        Button name2;
-        name = (Button) findViewById(R.id.buttonFinish);
-        name.setOnClickListener(this);
 
     }
+
     public void onClick(View view) {
         Spinner hour = (Spinner) findViewById(R.id.spinner);
-        Spinner minute =  (Spinner) findViewById(R.id.spinner2);
+        Spinner minute = (Spinner) findViewById(R.id.spinner2);
         Spinner amPM = (Spinner) findViewById(R.id.spinner3);
         String time = hour.getSelectedItem().toString() + ":" + minute.getSelectedItem().toString() + " " + amPM.getSelectedItem().toString();
         EditText nameClass = (EditText) findViewById(R.id.name);
@@ -89,12 +110,10 @@ public class FormActivity extends AppCompatActivity implements View.OnClickListe
             Course course = new Course(name, address, city2, state2, zipCode2, days, strDate);
             dbHandler.add(course);
         } catch (java.text.ParseException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
 
     }
-
 
 }
