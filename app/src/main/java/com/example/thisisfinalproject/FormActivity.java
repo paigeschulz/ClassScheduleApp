@@ -79,10 +79,6 @@ public class FormActivity extends AppCompatActivity  {
     }
 
 
-               // Intent intent = new Intent(FormActivity.this, Course.class);
-              //  startActivity(intent);
-
-
 
 
     public void onClick1(View view) {

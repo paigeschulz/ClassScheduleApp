@@ -353,11 +353,5 @@ public class CountDownActivity extends AppCompatActivity {
 
     }
 
-  /**  protected Date getNextDay(int dayWeek, String courseDays) {
-        Date date = new Date();
-        Calendar c = Calendar.getInstance();
-        c.setTime(date);
-        c.add(Calendar.DATE, 2);
-        date = c.getTime();
-    } **/
+
 }

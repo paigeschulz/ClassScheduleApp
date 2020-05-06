@@ -177,20 +177,4 @@ public class TimerActivity {
     }
 }
 
-  /**  public static String timeUntilCourse(ArrayList<Course> listCourses) {
-        Course nextCourse = getNextCourse(listCourses);
-        String nextCourseTime = nextCourse.getTimeClass();
-        ArrayList<Course> MonWed = this.MW(listCourses);
-        ArrayList<Course> MonWedFri = this.MWF(listCourses);
-        ArrayList<Course> TuesThurs = this.TT(listCourses);
-        Calendar myDate = Calendar.getInstance();
-        int day = myDate.get(Calendar.DAY_OF_WEEK);
-       // LocalTime now = LocalTime.now();
-        //new code
-        DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
-        LocalDateTime now = LocalDateTime.now();
 
-
-
-
-} **/

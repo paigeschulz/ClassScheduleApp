@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 
 public class MyDBHandler extends SQLiteOpenHelper {
+    //https://dzone.com/articles/create-a-database-android-application-in-android-s?fbclid=IwAR2zbkXYcxI5FUF-zbyoiJNK_AvomMRr1fhBiUqJhSLJ-GkBxt-ckp2N2vk
     private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "studentDB.db";
     public static final String TABLE_NAME = "Course";
     public static final String COLUMN_NAME = "className";
-  //  public static final MapsActivity COLUMN_LOCATION = "classLocation";
     public static final String COLUMN_ADDRESS = "streetAddress";
     public static final String COLUMN_CITY = "city";
     public static final String COLUMN_STATE = "state";
@@ -72,7 +72,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         db.close();
         return courseList;
     }
-// used to be just public void add
+
     public void add(Course course) {
         ContentValues arr = new ContentValues();
         arr.put(COLUMN_NAME, course.getName());

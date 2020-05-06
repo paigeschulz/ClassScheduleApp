@@ -27,6 +27,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 
 public class MapsActivity extends FragmentActivity  implements OnMapReadyCallback  {
+    //https://developers.google.com/maps/documentation/android-sdk/start
     LocationManager locationManager;
     LocationListener locationListener;
     LatLng userLatLong;
