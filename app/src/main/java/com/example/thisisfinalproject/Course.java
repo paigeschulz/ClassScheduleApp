@@ -1,6 +1,8 @@
 package com.example.thisisfinalproject;
 
-public class Course {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Course extends AppCompatActivity{
     private String className;
     private MapsActivity classLocation;
     private String daysOfWeek;

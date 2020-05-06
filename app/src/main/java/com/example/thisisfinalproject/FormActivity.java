@@ -22,7 +22,7 @@ import java.text.DateFormat;
 import java.util.List;
 
 
-public class FormActivity extends AppCompatActivity implements View.OnClickListener {
+public class FormActivity extends AppCompatActivity  {
     MyDBHandler handler;
     private Button name, name2;
     private EditText editText;
@@ -35,11 +35,11 @@ public class FormActivity extends AppCompatActivity implements View.OnClickListe
 
         //Button name;
         name = (Button) findViewById(R.id.addClass);
-        name.setOnClickListener(this);
+        //name.setOnClickListener(this);
 
         //Button name2;
         name2 = (Button) findViewById(R.id.buttonFinish);
-        name2.setOnClickListener(this);
+        //name2.setOnClickListener(this);
         // editText = (EditText) findViewById(R.id.Address);
 
         //handler = new MyDBHandler(this);
@@ -71,15 +71,21 @@ public class FormActivity extends AppCompatActivity implements View.OnClickListe
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FormActivity.this, Course.class);
-                startActivity(intent);
+                onClick1(v);
+
             }
+
         });
-
-
     }
 
-    public void onClick(View view) {
+
+               // Intent intent = new Intent(FormActivity.this, Course.class);
+              //  startActivity(intent);
+
+
+
+
+    public void onClick1(View view) {
         Spinner hour = (Spinner) findViewById(R.id.spinner);
         Spinner minute = (Spinner) findViewById(R.id.spinner2);
         Spinner amPM = (Spinner) findViewById(R.id.spinner3);
@@ -98,7 +104,9 @@ public class FormActivity extends AppCompatActivity implements View.OnClickListe
             DateFormat dateFormat = new SimpleDateFormat("HH:mm");
             String strDate = dateFormat.format(date);
             MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
-            // I dont need this right?
+            SQLiteDatabase db1 = dbHandler.getWritableDatabase();
+            dbHandler.onCreate(db1);
+
 
             String name = nameClass.getText().toString();
             String address = streetAddress.getText().toString();
@@ -109,6 +117,7 @@ public class FormActivity extends AppCompatActivity implements View.OnClickListe
 
             Course course = new Course(name, address, city2, state2, zipCode2, days, strDate);
             dbHandler.add(course);
+            System.out.println("last line of on click");
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
@@ -117,3 +126,4 @@ public class FormActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 }
+

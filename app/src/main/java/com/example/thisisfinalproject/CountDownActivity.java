@@ -18,12 +18,13 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.time.LocalTime;
 import java.util.Locale;
+import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 import java.time.format.DateTimeFormatter;
 
 public class CountDownActivity extends AppCompatActivity {
 // or is it textView instead?
-    EditText txtNumber1 = (EditText) findViewById(R.id.txtNumber1);
+    EditText txtNumber1;
     TextView tv;
     long diff;
     long oldLong;
@@ -31,7 +32,7 @@ public class CountDownActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        txtNumber1 = (EditText) findViewById(R.id.txtNumber1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count_down);
         tv = new TextView(this);
@@ -85,6 +86,7 @@ public class CountDownActivity extends AppCompatActivity {
                     + (TimeUnit.MILLISECONDS.toHours(millis) - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(millis)) + ":")
                     + (TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)) + ":"
                     + (TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))));
+            System.out.println(hms + " " + "this is hms");
             txtNumber1.setText(/*context.getString(R.string.ends_in) + " " +*/ hms);
         }
     }

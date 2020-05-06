@@ -24,7 +24,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CountDownActivity"></activity>
         <activity android:name=".FormActivity" />
+        <activity android:name=".Course"></activity>
         <activity android:name=".ButtonListenerActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
